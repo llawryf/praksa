@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hallo</title>
+    <title>Data Europe</title>
     
     <style>
         body {
@@ -184,6 +184,31 @@
         
 
 
+function provjeriPolja() {
+    const fname = document.getElementById('fname').value;
+    const lname = document.getElementById('lname').value;
+    const mail = document.getElementById('mail').value;
+    const pass = document.getElementById('pass').value;
+    const ident = document.getElementById('ident').value;
+    const submitBtn = document.getElementById('123');
+
+    if (fname === '' || lname === '' || mail === '' || pass === '' || ident === '') {
+        submitBtn.disabled = true;
+    } else {
+        submitBtn.disabled = false;
+    }
+}
+
+// Add event listeners to form fields
+document.getElementById('fname').addEventListener('input', provjeriPolja);
+document.getElementById('lname').addEventListener('input', provjeriPolja);
+document.getElementById('mail').addEventListener('input', provjeriPolja);
+document.getElementById('pass').addEventListener('input', provjeriPolja);
+document.getElementById('ident').addEventListener('input', provjeriPolja);
+
+// Initially check form fields when the page loads
+provjeriPolja();
+
 function porukica(){
     alert("Trebate se prvo prijaviti");
 }
@@ -204,18 +229,18 @@ function provjeriIme(){
 function provjeriLozinku(){
     var lozinka=document.getElementById('pass').value;
     var ponovljena=document.getElementById('ident').value;
-
+    var dugme=document.getElementById('123');
    
-    if(lozinka!==ponovljena)
+    if(lozinka==ponovljena)
         {
             
-            let dugme=document.getElementById('123');
-            dugme.disabled=true;
+            dugme.disabled=false;
             
         }
     else{
-        let dugme=document.getElementById('123');
-        dugme.disabled=false;
+        
+        dugme.disabled=true;
+        
         
     }
 }
@@ -249,30 +274,7 @@ function provjeriEmail() {
 
 
 
-function provjeriPolja() {
-    const fname = document.getElementById('fname').value;
-    const lname = document.getElementById('lname').value;
-    const mail = document.getElementById('mail').value;
-    const pass = document.getElementById('pass').value;
-    const ident = document.getElementById('ident').value;
-    const submitBtn = document.getElementById('123');
 
-    if (fname === '' || lname === '' || mail === '' || pass === '' || ident === '') {
-        submitBtn.disabled = true;
-    } else {
-        submitBtn.disabled = false;
-    }
-}
-
-// Add event listeners to form fields
-document.getElementById('fname').addEventListener('input', provjeriPolja);
-document.getElementById('lname').addEventListener('input', provjeriPolja);
-document.getElementById('mail').addEventListener('input', provjeriPolja);
-document.getElementById('pass').addEventListener('input', provjeriPolja);
-document.getElementById('ident').addEventListener('input', provjeriPolja);
-
-// Initially check form fields when the page loads
-provjeriPolja();
 
 function klik(event){
     event.preventDefault();
@@ -282,7 +284,11 @@ function klik(event){
     var pr=document.getElementById("lname").value;
     var em=document.getElementById("mail").value;
     var Id=document.getElementById("ident").value;
+    var submitButton = document.getElementById('123');
+
     
+    
+
     var podaci ={
         FirstName: i,
         LastName: pr,
